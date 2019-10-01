@@ -421,7 +421,7 @@ function songLoaded() {
 // text is mapped to a 2D plane so it works in p5's WEBGL canvas
 function loadingScreen() {
   graphics2d.background(0);
-  graphics2d.textFont("Futura");
+  graphics2d.textFont("Arial");
   graphics2d.textSize(width / 20);
   graphics2d.textStyle('italic');
   graphics2d.textAlign(CENTER, CENTER);
