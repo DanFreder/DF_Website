@@ -1,0 +1,34 @@
+/*********************************************
+
+Here is a description of any special CSS used.
+In this case it's just padding and margin to 0
+so the canvas is flush with the top left corner.
+
+**********************************************/
+body {
+  padding: 0;
+  margin: 100;
+}
+
+canvas {
+  display: block;
+}
+
+h1 {
+  font: 2em "Helvetica", sans-serif;
+  color: white;
+  font-stretch: extra-expanded;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+
+h2 {
+  font: 1.4em "Helvetica", sans-serif;
+  color: white;
+}
+
+p {
+  font: 1.2em "Helvetica", sans-serif;
+  color: white;
+}
