@@ -16,7 +16,7 @@ canvas {
 
 h1 {
   font-family: 'Arial', sans-serif;
-  font-size: 3em;
+  font-size: 4em;
   margin-left: 30px;
   color: Lavender;
     /* color: Black; */
@@ -27,7 +27,7 @@ h1 {
 h2 {
   font-family: 'Be Vietnam', sans-serif;
   margin-left: 30px;
-  font-size: 1.2em;
+  font-size: 2.2em;
 }
 
 p {
