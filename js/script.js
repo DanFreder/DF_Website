@@ -31,7 +31,7 @@ function setup() {
 function draw() {
   push();
   translate(windowWidth / 2, windowHeight / 2);
-  fill(0, 0, 0, 5);
+  fill(0, 0, 0, 10);
   stroke(220, 20, 60, 60);
   strokeWeight(1);
   var oX = ((aX + bX + cX) / 3);
