@@ -5,9 +5,6 @@ df website homepage
 "use strict";
 
 let pressed = 0;
-let dfLive;
-var numTriangles = 50;
-var triangles = [];
 var aX = -400;
 var aY = -344;
 var bX = 0;
@@ -15,9 +12,8 @@ var bY = 348.84;
 var cX = 400;
 var cY = -344;
 
-
 function preload() {
-  dfLive = loadImage('assets/images/DF_liveTest.jpg');
+  // dfLive = loadImage('assets/images/DF_liveTest.jpg');
 }
 
 function setup() {
