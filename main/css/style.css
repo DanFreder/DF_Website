@@ -15,21 +15,24 @@ canvas {
 }
 
 h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 3em;
   margin-left: 30px;
-  font: 3em "Roboto", sans-serif;
   color: Lavender;
-  font-style: oblique;
+    /* color: Black; */
   font-weight: bold;
+  font-style: italic;
 }
 
-
 h2 {
+  font-family: 'Be Vietnam', sans-serif;
   margin-left: 30px;
-  font: 1.4em "Roboto", sans-serif;
+  font-size: 1.2em;
 }
 
 p {
+  font-family: 'Be Vietnam', sans-serif;
   margin-left: 30px;
-  font: 1em "Roboto", sans-serif;
+  font-size: 1em;
   color: Lavender;
 }

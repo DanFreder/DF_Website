@@ -1,25 +1,20 @@
 /*****************
 df website homepage
-minimalist site for interactive a/v duo
 ******************/
 
 "use strict";
 
 let pressed = 0;
-
-//colour pallete
-let red = '#ff192c';
-let green = '#06d6a0';
-let lightBlue = '#00a1e4';
-let navy = '#073b4c';
-let orange = '#db5a42';
-let turquoise = '#50d8d7';
-let pink = '#e83f6f';
-let yellow = '#ffbf00';
-let white = '#f9fdff';
-let purple = '#9d44b5'
-
 let dfLive;
+var numTriangles = 50;
+var triangles = [];
+var aX = -400;
+var aY = -344;
+var bX = 0;
+var bY = 348.84;
+var cX = 400;
+var cY = -344;
+
 
 function preload() {
   dfLive = loadImage('assets/images/DF_liveTest.jpg');
@@ -34,26 +29,23 @@ function setup() {
   canvas.style("top:0");
   canvas.style("left:0");
   canvas.style("z-index:-100");
-  imageMode(CENTER);
-  image(dfLive, width / 2, height / 2);
+  background(0);
 }
 
 function draw() {
-  // background(34, 37, 42);
-  background(0);
-  // if (mouseIsPressed) {
-  //   push();
-  //   for (var i = 0; i < 20; i++) {
-  //     image(dfLive, width / 2, height / 2);
-  //     var scaleX = map(mouseX, 0, windowWidth, -20, 20);
-  //     var scaleY = map(mouseY, 0, windowHeight, -20, 20);
-  //     stroke(255);
-  //     translate(scaleX, scaleY);
-  //   }
-  //   pop();
-  // } else {
-  //   image(dfLive, width / 2, height / 2);
-  // }
+  push();
+  translate(windowWidth / 2, windowHeight / 2);
+  fill(0, 0, 0, 5);
+  stroke(255, 0, 0, 60);
+  strokeWeight(1);
+  var oX = ((aX + bX + cX) / 3);
+  var oY = ((aY + bY + cY) / 3);
+  if (pressed === 1) {
+    translate(pmouseX - width / 2, pmouseY - height / 2);
+  }
+  rotate(radians(frameCount));
+  triangle(aX, aY, bX, bY, cX, cY);
+  pop();
 }
 
 function mousePressed() {
@@ -66,5 +58,5 @@ function mousePressed() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  image(dfLive, width / 2, height / 2);
+  background(0);
 }
