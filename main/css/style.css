@@ -16,8 +16,8 @@ canvas {
 
 h1 {
   margin-left: 30px;
-  font: 3em "Helvetica", sans-serif;
-  color: white;
+  font: 3em "Roboto", sans-serif;
+  color: Lavender;
   font-style: oblique;
   font-weight: bold;
 }
@@ -25,12 +25,11 @@ h1 {
 
 h2 {
   margin-left: 30px;
-  font: 1.4em "Helvetica", sans-serif;
-  color: white;
+  font: 1.4em "Roboto", sans-serif;
 }
 
 p {
   margin-left: 30px;
-  font: 1.2em "Helvetica", sans-serif;
-  color: white;
+  font: 1em "Roboto", sans-serif;
+  color: Lavender;
 }

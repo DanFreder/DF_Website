@@ -41,19 +41,19 @@ function setup() {
 function draw() {
   // background(34, 37, 42);
   background(0);
-  if (mouseIsPressed) {
-    push();
-    for (var i = 0; i < 20; i++) {
-      image(dfLive, width / 2, height / 2);
-      var scaleX = map(mouseX, 0, windowWidth, -20, 20);
-      var scaleY = map(mouseY, 0, windowHeight, -10, 10);
-      stroke(255);
-      translate(scaleX, scaleY);
-    }
-    pop();
-  } else {
-    image(dfLive, width / 2, height / 2);
-  }
+  // if (mouseIsPressed) {
+  //   push();
+  //   for (var i = 0; i < 20; i++) {
+  //     image(dfLive, width / 2, height / 2);
+  //     var scaleX = map(mouseX, 0, windowWidth, -20, 20);
+  //     var scaleY = map(mouseY, 0, windowHeight, -20, 20);
+  //     stroke(255);
+  //     translate(scaleX, scaleY);
+  //   }
+  //   pop();
+  // } else {
+  //   image(dfLive, width / 2, height / 2);
+  // }
 }
 
 function mousePressed() {
