@@ -13,6 +13,7 @@ canvas {
   display: block;
 }
 
+/* 'DF' large corner */
 h1 {
   font-family: 'Arial', sans-serif;
   font-size: 4em;
@@ -21,14 +22,22 @@ h1 {
   font-style: italic;
 }
 
+
 h2 {
   font-family: 'Be Vietnam', sans-serif;
-  font-size: 2em;
+  font-size: 1.8em;
+  color: Lavender;
 }
 
-p {
+/* DF about text */
+h3 {
   font-family: 'Be Vietnam', sans-serif;
-  margin-left: 30px;
-  font-size: 1em;
+  text-align: left;
+  font-size: 1.4em;
   color: Lavender;
+  font-weight: bold;
+  font-style: italic;
+}
+  h3 span {
+  background-color:black;
 }
