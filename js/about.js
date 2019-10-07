@@ -1,5 +1,5 @@
 /*****************
-df website homepage
+df website about page
 ******************/
 
 "use strict";
@@ -27,8 +27,8 @@ function setup() {
   canvas.style("top:0");
   canvas.style("left:0");
   canvas.style("z-index:-100");
-  background(0);
   imageMode(CENTER);
+  background(0);
 }
 
 function draw() {

@@ -28,6 +28,9 @@ h2 {
   font-size: 1.8em;
   color: Lavender;
 }
+h2 span {
+background-color:black;
+}
 
 /* DF about text */
 h3 {
@@ -35,8 +38,6 @@ h3 {
   text-align: left;
   font-size: 1.4em;
   color: Lavender;
-  font-weight: bold;
-  font-style: italic;
 }
   h3 span {
   background-color:black;
