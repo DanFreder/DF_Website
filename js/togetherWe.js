@@ -166,7 +166,6 @@ function draw() {
     //timeline
     if (currentTime >= part1 && currentTime <= part2) {
       background(bgClr);
-      starfield();
       rays();
     } else if (currentTime >= part2 && currentTime <= part3) {
       background(bgClr);
