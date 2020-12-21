@@ -82,7 +82,7 @@ const part15 = 170.57; //170.27
 const part16 = 180.57; //180.07
 const part17 = 186.63; //186.13
 const part18 = 192.64; //terminate
-const part19 = 196; //endScreen (197 too far)
+const part19 = 198; //endScreen
 
 // ffwd option for testing
 // function keyPressed() {
@@ -121,7 +121,7 @@ function setup() {
 
   amplitude = new p5.Amplitude();
   //load audio file if real PC, and trigger songLoaded function once loaded
-  song = loadSound('assets/togetherWe.mp3', songLoaded);
+  song = loadSound('assets/togetherWe_LS.mp3', songLoaded);
 
   noiseValX = random(width);
   noiseValY = random(height);
