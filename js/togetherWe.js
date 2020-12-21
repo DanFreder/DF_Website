@@ -6,6 +6,8 @@ move and click the mouse to modify animations with the music
 
 "use strict";
 
+var ccaImage;
+var dfSite;
 var song;
 var loaded = 0;
 var currentTime = 0;
@@ -89,6 +91,10 @@ const part19 = 196; //endScreen (197 too far)
 //   }
 // }
 
+function preload() {
+  ccaImage = loadImage('assets/images/CCA_RGB_white_e.png');
+}
+
 function setup() {
   // Create a canvas the size of the window
   canvas = createCanvas(windowWidth, windowHeight, WEBGL);
@@ -160,6 +166,7 @@ function draw() {
     //timeline
     if (currentTime >= part1 && currentTime <= part2) {
       background(bgClr);
+      starfield();
       rays();
     } else if (currentTime >= part2 && currentTime <= part3) {
       background(bgClr);
@@ -600,14 +607,16 @@ function starfield() {
   noFill();
   stroke(255);
   strokeWeight(1);
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 40; i++) {
     rotateX(o2x);
     rotateZ(o3z);
     var noiZ = map(noise(i * frameCount / 500), 0, 1, 20, 100);
     triangle(-50 * i - noiZ, 0, 0, -50 * i - noiZ, 50 * i + noiZ, 0);
-    o3z += .000001 * (i * noiZ);
+    o3z += .000001 * (i + noiZ);
   }
-  for (var i = 0; i < 50; i++) {
+
+  //dark stuff
+  for (var i = 0; i < 100; i++) {
     noFill();
     stroke(0);
     strokeWeight(15);
@@ -627,13 +636,13 @@ function starfield() {
   noFill();
   stroke(0);
   strokeWeight(10);
-  for (var i = 0; i < 30; i++) {
+  for (var i = 0; i < 60; i++) {
     rotateZ(o2z);
     ellipse(0, 0, mouseX / 2 - elW / i, mouseY / 2 - elH / i);
-    o2z += .00001;
   }
-  sDrive1 += .003 * amper;
-  sDrive2 += .005 * amper;
+  o2z += .0001;
+  sDrive1 += .0003 * amper;
+  sDrive2 += .0005 * amper;
   pop();
 }
 
@@ -812,27 +821,32 @@ function phoneScreen() {
 
 function endScreen() {
   push();
-  ambientLight(255);
   graphics2d.background(0);
   graphics2d.textFont("'Be Vietnam'");
   graphics2d.textSize(width / 25);
   graphics2d.textAlign(CENTER, CENTER);
   graphics2d.noStroke();
   graphics2d.fill(255);
-  // graphics2d.text('thanks for listening', windowWidth / 2, (windowHeight / 2) - 50);
-  var dfSite = createA('https://dfduo.com/', 'thanks for listening');
+  dfSite = createA('https://dfduo.bandcamp.com/', 'df bandcamp');
   dfSite.style('font-family', 'Be Vietnam');
   dfSite.style('font-size', '5em');
   dfSite.style('text-align', 'center');
   dfSite.style('text-decoration', 'none');
   dfSite.style('color', 'Lavender');
-  dfSite.position(0, height / 2 - 100);
+  dfSite.mouseOver(mouseOnLink);
+  dfSite.position(0, height / 2 - 175);
   dfSite.center('horizontal');
+  graphics2d.imageMode(CENTER);
+  graphics2d.image(ccaImage, width / 2, height / 2 + 50, 400, 73);
   texture(graphics2d);
   noStroke();
   plane(windowWidth, windowHeight);
-  noLoop();
   pop();
+}
+
+function mouseOnLink() {
+  dfSite.style('color', '#009E63');
+  dfSite.style('text-decoration', 'underline');
 }
 
 function windowResized() {
