@@ -82,7 +82,7 @@ const part15 = 170.57; //170.27
 const part16 = 180.57; //180.07
 const part17 = 186.63; //186.13
 const part18 = 192.64; //terminate
-const part19 = 198; //endScreen
+const part19 = 197.5; //endScreen
 
 // ffwd option for testing
 // function keyPressed() {
@@ -157,6 +157,7 @@ function draw() {
     song.pause();
   } else if (triggerStart === 0) {
     loadingScreen();
+    // endScreen();
   } else {
     //start music video
     amp = amplitude.volume * 3;
@@ -820,21 +821,15 @@ function phoneScreen() {
 
 function endScreen() {
   push();
-  graphics2d.background(0);
-  graphics2d.textFont("'Be Vietnam'");
-  graphics2d.textSize(width / 25);
-  graphics2d.textAlign(CENTER, CENTER);
-  graphics2d.noStroke();
-  graphics2d.fill(255);
   dfSite = createA('https://dfduo.bandcamp.com/', 'df bandcamp');
   dfSite.style('font-family', 'Be Vietnam');
   dfSite.style('font-size', '5em');
   dfSite.style('text-align', 'center');
   dfSite.style('text-decoration', 'none');
   dfSite.style('color', 'Lavender');
-  dfSite.mouseOver(mouseOnLink);
   dfSite.position(0, height / 2 - 175);
   dfSite.center('horizontal');
+  dfSite.mouseOver(hoverLink);
   graphics2d.imageMode(CENTER);
   graphics2d.image(ccaImage, width / 2, height / 2 + 50, 400, 73);
   texture(graphics2d);
@@ -843,7 +838,7 @@ function endScreen() {
   pop();
 }
 
-function mouseOnLink() {
+function hoverLink() {
   dfSite.style('color', '#009E63');
   dfSite.style('text-decoration', 'underline');
 }
