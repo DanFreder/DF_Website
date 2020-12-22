@@ -12,6 +12,7 @@ var song;
 var loaded = 0;
 var currentTime = 0;
 var graphics2d;
+var graphics2d1;
 var amplitude;
 var amp = 0;
 var triggerStart = 0;
@@ -87,7 +88,7 @@ const part19 = 197.5; //endScreen
 // ffwd option for testing
 // function keyPressed() {
 //   if (keyCode === RIGHT_ARROW) {
-//     song.jump(60);
+//     song.jump(190);
 //   }
 // }
 
@@ -99,6 +100,7 @@ function setup() {
   // Create a canvas the size of the window
   canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   graphics2d = createGraphics(windowWidth, windowHeight);
+  graphics2d1 = createGraphics(windowWidth, windowHeight);
 
   // Canvas stays fixed behind HTML & ignores scrolling
   canvas.style("display:block");
@@ -162,6 +164,7 @@ function draw() {
     //start music video
     amp = amplitude.volume * 3;
     currentTime = song.currentTime();
+
     //draw pulsing background
     bgClr = map(sin(frameCount / 5), -1, 1, 0, 55);
     //timeline
@@ -348,6 +351,7 @@ function draw() {
 
       //endScreen
     } else if (currentTime >= part19) {
+      background(bgClr);
       endScreen();
     }
   }
@@ -753,8 +757,7 @@ function mousePressed() {
   //trigger start/play
   if (loaded === 1) {
     triggerStart = 1;
-    //testing this playMode out
-    song.playMode('restart');
+    // song.playMode('restart');
     song.play();
     //update loaded variable to avoid retriggering on future mouse clicks
     loaded = 2;
@@ -772,24 +775,24 @@ function songLoaded() {
 // text is mapped to a 2D plane so it works in p5's WEBGL canvas
 function loadingScreen() {
   push();
-  graphics2d.background(0);
-  graphics2d.textFont('Be Vietnam');
-  graphics2d.textSize(width / 20);
-  graphics2d.textAlign(CENTER, CENTER);
-  graphics2d.noStroke();
-  graphics2d.fill(255);
-  graphics2d.text('DF', windowWidth / 2, windowHeight / 2 - 150);
-  graphics2d.text('Together, We', windowWidth / 2, windowHeight / 2 - 50);
+  graphics2d1.background(0);
+  graphics2d1.textFont('Be Vietnam');
+  graphics2d1.textSize(width / 20);
+  graphics2d1.textAlign(CENTER, CENTER);
+  graphics2d1.noStroke();
+  graphics2d1.fill(255);
+  graphics2d1.text('DF', windowWidth / 2, windowHeight / 2 - 150);
+  graphics2d1.text('Together, We', windowWidth / 2, windowHeight / 2 - 50);
   if (loaded === 0) {
-    graphics2d.textSize(width / 30);
-    graphics2d.fill(100);
-    graphics2d.text('loading...', windowWidth / 2, windowHeight / 2 + 50);
+    graphics2d1.textSize(width / 30);
+    graphics2d1.fill(100);
+    graphics2d1.text('loading...', windowWidth / 2, windowHeight / 2 + 50);
   } else {
-    graphics2d.textSize(width / 25);
-    graphics2d.fill(255);
-    graphics2d.text('click to play', windowWidth / 2, windowHeight / 2 + 50);
+    graphics2d1.textSize(width / 25);
+    graphics2d1.fill(255);
+    graphics2d1.text('click to play', windowWidth / 2, windowHeight / 2 + 50);
   }
-  texture(graphics2d);
+  texture(graphics2d1);
   noStroke();
   plane(windowWidth, windowHeight);
   pop();
@@ -821,27 +824,31 @@ function phoneScreen() {
 
 function endScreen() {
   push();
-  dfSite = createA('https://dfduo.bandcamp.com/', 'df bandcamp');
+  texture(graphics2d);
+  noStroke();
+  plane(windowWidth, windowHeight);
+
+  dfSite = createA('https://dfduo.bandcamp.com/', 'df bandcamp >');
   dfSite.style('font-family', 'Be Vietnam');
   dfSite.style('font-size', '5em');
   dfSite.style('text-align', 'center');
   dfSite.style('text-decoration', 'none');
-  dfSite.style('color', 'Lavender');
+  // dfSite.style('color', 'Lavender');
+  dfSite.style('color', '#009E63');
   dfSite.position(0, height / 2 - 175);
   dfSite.center('horizontal');
-  dfSite.mouseOver(hoverLink);
+  // dfSite.mouseOver(hoverLink);
+
   graphics2d.imageMode(CENTER);
   graphics2d.image(ccaImage, width / 2, height / 2 + 50, 400, 73);
-  texture(graphics2d);
-  noStroke();
-  plane(windowWidth, windowHeight);
   pop();
 }
 
-function hoverLink() {
-  dfSite.style('color', '#009E63');
-  dfSite.style('text-decoration', 'underline');
-}
+//
+// function hoverLink() {
+//   dfSite.style('text-decoration', 'underline');
+//   dfSite.style('color', '#009E63');
+// }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
