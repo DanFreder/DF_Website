@@ -810,7 +810,7 @@ function loadingScreen() {
 function phoneScreen() {
   push();
   graphics2d.background(0);
-  graphics2d.textFont("'Be Vietnam'");
+  graphics2d.textFont('Be Vietnam');
   graphics2d.textSize(width / 25);
   graphics2d.textAlign(CENTER, CENTER);
   graphics2d.fill(255);
@@ -835,12 +835,18 @@ function endScreen() {
   dfSite.style('text-decoration', 'none');
   // dfSite.style('color', 'Lavender');
   dfSite.style('color', '#009E63');
-  dfSite.position(0, height / 2 - 175);
+  dfSite.position(0, height / 2 - 200);
   dfSite.center('horizontal');
   // dfSite.mouseOver(hoverLink);
 
+  graphics2d.fill(255);
+  graphics2d.textSize(26);
+  graphics2d.textAlign(CENTER, CENTER);
+  graphics2d.textFont('Be Vietnam');
+  graphics2d.text('We acknowledge the support of the Canada Council for the Arts.', width / 2, height / 2 - 25);
+
   graphics2d.imageMode(CENTER);
-  graphics2d.image(ccaImage, width / 2, height / 2 + 50, 400, 73);
+  graphics2d.image(ccaImage, width / 2, height / 2 + 75, 400, 73);
   pop();
 }
 
