@@ -84,6 +84,8 @@ const part16 = 180.57; //180.07
 const part17 = 186.63; //186.13
 const part18 = 192.64; //terminate
 const part19 = 197.5; //endScreen
+// const part18 = 4; //terminate (ffwd)
+// const part19 = 5 //endScreen (ffwd)
 
 // ffwd option for testing
 // function keyPressed() {
@@ -107,6 +109,8 @@ function setup() {
   canvas.style("position:fixed");
   canvas.style("top:0");
   canvas.style("left:0");
+  canvas.style("width:100%");
+  canvas.style("height:100%");
   canvas.style("z-index:-100");
   background(0);
 
@@ -152,15 +156,29 @@ function isMobileDevice() {
   return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 };
 
+function showDesktopMessage () {
+  var msg = document.getElementById("desktopMessage");
+  msg.style.display = "flex";
+}
+
+function hideDesktopMessage () {
+  var msg = document.getElementById("desktopMessage");
+  msg.style.display = "none";
+}
+
 function draw() {
   if (isMobileDevice() === true || touched === 1 || window.mobileCheck() === true) {
-    phoneScreen();
+  // if ( document.documentElement.clientWidth < 1000 ) {
+    showDesktopMessage();
+    //phoneScreen();
     currentTime = 0;
     song.pause();
   } else if (triggerStart === 0) {
+    hideDesktopMessage();
     loadingScreen();
     // endScreen();
   } else {
+    hideDesktopMessage();
     //start music video
     amp = amplitude.volume * 3;
     currentTime = song.currentTime();
@@ -348,11 +366,15 @@ function draw() {
       //terminate
     } else if (currentTime >= part18 && currentTime <= part19) {
       background(bgClr);
-
       //endScreen
     } else if (currentTime >= part19) {
       background(bgClr);
-      endScreen();
+      // canvas.style("display:none");
+      var postcard = document.getElementById("postcard");
+      postcard.className = "fade-in visible";
+      var postcardContent = document.getElementById("postcardContent");
+      postcardContent.style.display = "flex";
+      //endScreen();
     }
   }
 }
@@ -815,7 +837,7 @@ function phoneScreen() {
   graphics2d.textAlign(CENTER, CENTER);
   graphics2d.fill(255);
   graphics2d.text('please revisit', windowWidth / 2, windowHeight / 2 - 150);
-  graphics2d.text('on desktop', windowWidth / 2, windowHeight / 2 - 50);
+  graphics2d.text('on a bigger screen', windowWidth / 2, windowHeight / 2 - 50);
   texture(graphics2d);
   noStroke();
   plane(windowWidth, windowHeight);

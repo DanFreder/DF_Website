@@ -83,14 +83,28 @@ function isMobileDevice() {
   return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 };
 
+function showDesktopMessage () {
+  var msg = document.getElementById("desktopMessage");
+  msg.style.display = "flex";
+}
+
+function hideDesktopMessage () {
+  var msg = document.getElementById("desktopMessage");
+  msg.style.display = "none";
+}
+
 function draw() {
   if (isMobileDevice() === true || touched === 1 || window.mobileCheck() === true) {
-    phoneScreen();
+  // if (document.documentElement.clientWidth < 1000) {
+    showDesktopMessage();
+    //phoneScreen();
     currentTime = 0;
     song.pause();
   } else if (triggerStart === 0) {
+    hideDesktopMessage();
     loadingScreen();
   } else {
+    hideDesktopMessage();
     //start music video
     background(0);
     amp = amplitude.volume * 3;
@@ -134,7 +148,12 @@ function draw() {
     } else if (currentTime >= part16 && currentTime <= part17) {
       spheresExpansion();
     } else if (currentTime >= part17) {
-      endScreen();
+      // canvas.style("display:none");
+      var postcard = document.getElementById("postcard");
+      postcard.className = "fade-in visible";
+      var postcardContent = document.getElementById("postcardContent");
+      postcardContent.style.display = "flex";
+      // endScreen();
     }
   }
 }
@@ -672,7 +691,7 @@ function phoneScreen() {
   graphics2d.noStroke();
   graphics2d.fill(255);
   graphics2d.text('please revisit', windowWidth / 2, windowHeight / 2 - 150);
-  graphics2d.text('on desktop', windowWidth / 2, windowHeight / 2 - 50);
+  graphics2d.text('on a bigger screen', windowWidth / 2, windowHeight / 2 - 50);
   texture(graphics2d);
   plane(windowWidth, windowHeight);
   pop();

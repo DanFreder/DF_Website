@@ -5,7 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
 
+  <title>Together, We | DF</title>
+
   <!-- CSS stylesheet(s) -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
   <link rel="stylesheet" type="text/css" href="css/togetherWe.css" />
 
   <!-- Library script(s) -->
@@ -22,31 +25,45 @@
 <style>
 /* unvisited link */
 h2 a:link {
-color: Goldenrod;
-text-decoration: none;
+  color: Goldenrod;
+  text-decoration: none;
 }
 h1 a:link {
-color: Lavender;
-text-decoration: none;
+  color: Lavender;
+  text-decoration: none;
 }
 /* visited link */
 h2 a:visited {
- color: Goldenrod;
+  color: Goldenrod;
   text-decoration: none;
 }
 h1 a:visited {
- color: Lavender;
+  color: Lavender;
   text-decoration: none;
 }
 /* mouse over link */
 h2 a:hover {
- color: Lavender;
+  color: Lavender;
 }
 h1 a:hover {
- color: Goldenrod;
+  color: Goldenrod;
 }
 </style>
 </head>
 <body>
+  <main>
+    <div id="postcard" style="background: black; width: 100%; height: 100%" class="fade-in">
+      <div id="postcardContent" style="display: none; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%;">
+        <h2 style="text-align: center; font-size: 5em;"><span><a href="https://dfduo.bandcamp.com/" target="_blank">df bandcamp &gt;</span></a></h2>
+        <h2 style="text-align: center; margin-top: 3em; font-size: 1.5em;"><span>We acknowledge the support of the Canada Council for the Arts.</span></h2>
+        <h2 style="text-align: center; font-size: 1.5em"><span>Nous reconnaissons le soutien du Conseil des Arts du Canada.</span></h2>
+        <img src="assets/images/CCA_RGB_white_e.png" style="width: min(50%, 400px); height: auto; margin-top: 2em;">
+        <h2 style="text-align: center; margin-top: 3em; font-size: 2em;"><span><a href="/">&lt; home</span></a></h2>
+      </div>
+    </div>
+    <div id="desktopMessage" style="display: none; position: absolute; left: 0px; top: 0px; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%;" class="bg-black overlay">
+      <h2 style="text-align: center; font-size: 3.25rem;"><span>please revisit</br></br>on desktop</span></h2>
+    </div>
+  </main>
 </body>
 </html>
